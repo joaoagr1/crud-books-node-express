@@ -12,25 +12,6 @@ class BookController {
         const book = await new BookService().findById(req.params.id)
         return res.json(book)
     }
-
-    async deleteById(req: Request, res: Response) {
-        const deletedBook = await new BookService().findById(req.params.id)
-
-        new BookService().deleteById(deletedBook);
-
-        return res.json("ok");
-
-    }
-
-    async updateById(req: Request, res: Response) {
-        const updatedBook = await new BookService().findById(req.params)
-
-        new BookService().updateById(updatedBook);
-
-        return res.json("ok");
-
-    }
-
 }
 
 export default new BookController()
